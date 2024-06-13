@@ -29,8 +29,9 @@ namespace prueba4EvaRecup.dtos
         public DateTime FechaPaso { get => fechaPaso; set => fechaPaso = value; }
         public bool Apto { get => apto; set => apto = value; }
         public string TipoVehiculo { get => tipoVehiculo; set => tipoVehiculo = value; }
+       
 
-        public Vehiculo(long id, string matricula, string tipoVehiculo, string zonaDestino, bool mercancia)
+        public Vehiculo(long id, string matricula, string tipoVehiculo, bool mercancia)
         {
             this.id = id;
             this.matricula = matricula;
@@ -50,7 +51,7 @@ namespace prueba4EvaRecup.dtos
         public string ToString()
         {
             string texto =
-                string.Concat("Matricula: ",matricula,";"," Tipo de vehiculo: ", ";"," Zona Destino: ", zonaDestino, ";"," Mercancia: ", mercancia, ";"," Fecha de Paso: ", fechaPaso);
+                string.Concat(matricula,";",tipoVehiculo,";",zonaDestino,";",mercancia,";",fechaPaso);
         
             return texto;
         } 

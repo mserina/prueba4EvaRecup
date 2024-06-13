@@ -9,6 +9,9 @@ namespace prueba4EvaRecup
     /// </summary>
     class Program
     {
+        public static string texto;
+        public static string rutaFichero = Utiles.Utiles.nombreFicheroVehiculos();
+        public static string rutaFicheroLog = Utiles.Utiles.nombreFicheroLog();
         public static List<Vehiculo> listaVehiculos = new List<Vehiculo>();
         /// <summary>
         /// Contiene el procedimiento del menu
@@ -19,6 +22,9 @@ namespace prueba4EvaRecup
         {
             MenuInterfaz mi = new MenuImplementacion();
             OperacionInterfaz op = new OperacionImplementacion();
+            OperacionFicheroInterfaz of = new OperacionFicheroImplementacion();
+
+            of.cargaInicial();
 
             int opcionUusariio = 0;
             bool cerrarMmeu = false;
@@ -32,10 +38,15 @@ namespace prueba4EvaRecup
                     {
                         case 0:
                             cerrarMmeu = true;
+                            texto = "Se ha cerrado la aplicacion";
+                            of.escribirFicheroLog(texto);
+                            of.escribirFichero();
                             break;
 
                         case 1:
                             op.meterDatos();
+                            texto = "Se ha accedidod a la opcion de meter datos";
+                            of.escribirFicheroLog(texto);
                             break;
 
                         default:
@@ -44,7 +55,8 @@ namespace prueba4EvaRecup
                     }
                 }catch(Exception e)
                 {
-                   
+                   texto = e.Message;
+                   of.escribirFicheroLog(texto);
                 }
                 
             }

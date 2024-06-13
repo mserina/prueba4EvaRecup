@@ -13,12 +13,12 @@ namespace prueba4EvaRecup.Utiles
     /// </summary>
     internal class Utiles
     {
-        static public long idGenerator()
+        public static long idGenerator()
         {
             int tamanoLista = Program.listaVehiculos.Count() -1;
             long idNuevo = 0;
 
-            if (Program.listaVehiculos.Count > 0)
+            if (Program.listaVehiculos.Count > 0)   
             {
                 idNuevo = Program.listaVehiculos[tamanoLista].Id + 1;
             }
@@ -28,5 +28,23 @@ namespace prueba4EvaRecup.Utiles
             }
             return idNuevo;
         } 
+
+        public static string nombreFicheroVehiculos()
+        {
+            DateTime fechaHoy = DateTime.Now;
+            string fechaHoyString = fechaHoy.ToString("ddMMyyyy");
+            string nombreFichero = string.Concat("C:\\Users\\Usuario\\Desktop\\ARCHIVOS\\", fechaHoyString, "-entidad.txt");
+            
+            return nombreFichero;
+        }
+
+        public static string nombreFicheroLog()
+        {
+            DateTime fechaHoy = DateTime.Now;
+            string fechaHoyString = fechaHoy.ToString("ddMMyyyy");
+            string nombreFichero = string.Concat("C:\\Users\\Usuario\\Desktop\\ARCHIVOS\\fichero-log", fechaHoyString, ".txt");
+
+            return nombreFichero;
+        }
     }
 }
